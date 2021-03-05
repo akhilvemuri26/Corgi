@@ -6,3 +6,6 @@ def home(request):
 
 def secondpage(request):
     return render(request, 'corgiapp/secondpage.html')
+
+def login(request):
+    return render(request, 'corgiapp/login.html')

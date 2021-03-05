@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends "corgiapp/base.html" %}
+  {% block body_block %}
+  <form action="secondpage.html">
+  <label for="uname">Username:</label><br>
+  <input type="text" id="fname" name="uname" placeholder="Username"><br>
+  <label for="pword">Password:</label><br>
+  <input type="text" id="pword" name="pword" placeholder="Password"><br><br>
+  <input type="submit" value="Submit">
+</form>
+  {% endblock %}

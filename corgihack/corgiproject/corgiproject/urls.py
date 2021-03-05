@@ -21,6 +21,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
     path('corgiapp/', include('corgiapp.urls')),
+    path('login/', views.login, name='login')
 
 
 ]
