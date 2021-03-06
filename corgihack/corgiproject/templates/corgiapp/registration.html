@@ -3,6 +3,17 @@
 
 {% block body_block %}
 <style>
+
+  img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .box {
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+  }
 body {font-family: Arial, Helvetica, sans-serif;}
 input[type=text], input[type=password] {
   width: 100%;
@@ -54,6 +65,7 @@ span.pword {
 }
 
 
+
 @media screen and (max-width: 300px) {
   span.pword {
      display: block;
@@ -63,13 +75,15 @@ span.pword {
      width: 100%;
   }
 }
+
 </style>
+<div class="col-12 box">
 <div class="jumbotron">
   {% if registered %}
     <h1>Thank You For Registering For Pup Care.</h1>
     <p>Click On Our Logo To return to the Home Page</p>
   {% else %}
-    <h1>register here</h1>
+    <img src="https://i.imgur.com/gP44b9H.png" alt="Image Not Found" class="center">
     <h3>Fill out the form:</h3>
     <form  method="post" enctype="multipart/form-data">
       {% csrf_token %}
@@ -79,5 +93,6 @@ span.pword {
 
     </form>
   {% endif %}
+  </div>
   </div>
 {% endblock %}

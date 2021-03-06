@@ -4,13 +4,15 @@ from corgiapp.forms import UserForm, UserProfileInfoForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+from django.shortcuts import redirect
 
 
 # Create your views here.
 def home(request):
     return render(request, 'corgiapp/home.html')
 def secondpage(request):
-    return render(request, 'corgiapp/secondpage.html')
+    return redirect("https://pupcare.discussion.community/")
+    # return render(request, 'corgiapp/secondpage.html')
 
 def user_logout(request):
     logout(request)
@@ -51,10 +53,18 @@ def user_login(request):
         if user:
 
             login(request, user)
-            return HttpResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(reverse('portal'))
 
         else:
             print("ERROR: USERNAME: {} and password {}".format(username, password))
             return HttpResponse("Invalid Username or Password")
     else:
         return render(request, 'corgiapp/login.html', {})
+
+def portal(request):
+
+    username = request.POST.get('username')
+
+    dog_breed = request.POST.get('dog_breed')
+    profile_pictures = request.POST.get('profile_pictures')
+    return render(request, 'corgiapp/portal.html', {'username': username,'profile_pictures': profile_pictures, 'dog_breed': dog_breed})

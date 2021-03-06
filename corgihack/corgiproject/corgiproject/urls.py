@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('corgiapp/', include('corgiapp.urls')),
     path('logout/', views.user_logout, name='logout'),
+    path('portal/', views.portal, name='portal')
 
 
 ]

@@ -1,5 +1,43 @@
 <!DOCTYPE html>
 {% extends "corgiapp/base.html" %}
   {% block body_block %}
+  <style>
+
+  .container {
+    padding: 16px;
+  }
+
+    h1 {text-align:center}
+
+    .box {
+      background: #ffffff;
+      border: 1px solid #f2f2f2;
+    }
+
+  </style>
+  <div class="col-12 box">
+
+
   <h1>welcome to home</h1>
+
+  <div id="banner-message">
+  <p>Select a Breed</p>
+
+  <input id="breed_search" />
+
+  <select class="breed_select">
+    <option></option>
+  </select>
+
+</div>
+<div id="breed_data">
+  <img id="breed_image" src="" />
+  <p>
+    Breed Data
+  </p>
+  <table id="breed_data_table">
+
+  </table>
+</div>
+</div>
   {% endblock %}

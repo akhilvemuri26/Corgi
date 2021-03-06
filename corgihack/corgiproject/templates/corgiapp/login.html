@@ -2,6 +2,20 @@
 {% extends "corgiapp/base.html" %}
   {% block body_block %}
   <style>
+  .container {
+    padding: 16px;
+  }
+
+    img.center {
+      display: block;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .box {
+      background: #ffffff;
+      border: 1px solid #f2f2f2;
+    }
   body {font-family: Arial, Helvetica, sans-serif;}
 
   input[type=text], input[type=password] {
@@ -64,8 +78,11 @@
     }
   }
   </style>
+  <div class="col-12 box">
+
+
   <div class="jumbotron">
-    <h1>Log Into Your Pup Care Account</h1>
+    <img src="https://i.imgur.com/zZ1SzyQ.png" alt="Image Not Found" class="center">
     <form action="{% url 'corgiapp:user_login' %}" method="post">
       {% csrf_token %}
       <label for="username">Username: </label>
@@ -78,4 +95,5 @@
     </form>
 
   </div>
+</div>
   {% endblock %}
