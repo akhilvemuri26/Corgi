@@ -9,10 +9,8 @@ from django.urls import reverse
 # Create your views here.
 def home(request):
     return render(request, 'corgiapp/home.html')
-
 def secondpage(request):
     return render(request, 'corgiapp/secondpage.html')
-
 
 def user_logout(request):
     logout(request)
