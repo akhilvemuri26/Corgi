@@ -1,0 +1,101 @@
+{% extends 'corgiapp/base.html' %}
+{% block title %}
+    Registration
+{% endblock %}
+{% load static %}
+
+{% block body_block %}
+<style>
+
+  img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .box {
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+  }
+body {font-family: Arial, Helvetica, sans-serif;}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#sb {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+#sb:hover {
+  opacity: 0.8;
+}
+
+.cbutton {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.profile {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.pword {
+  float: right;
+  padding-top: 16px;
+}
+
+
+
+@media screen and (max-width: 300px) {
+  span.pword {
+     display: block;
+     float: none;
+  }
+  .cbutton {
+     width: 100%;
+  }
+}
+
+</style>
+<div class="col-12 box">
+<div class="jumbotron">
+  {% if registered %}
+    <h1>Thank You For Registering For Pup Care.</h1>
+    <p>Click On Our Logo To return to the Home Page</p>
+  {% else %}
+    <img src="https://i.imgur.com/gP44b9H.png" alt="Image Not Found" class="center">
+    <h3>Fill out the form:</h3>
+    <form  method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ user_form.as_p}}
+      {{ profile_form.as_p }}
+      <input id="sb" type="submit" name="" value="Register">
+
+    </form>
+  {% endif %}
+  </div>
+  </div>
+{% endblock %}
