@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 {% extends "corgiapp/base.html" %}
+{% block title %}
+    Title from child template
+{% endblock %}
  {% block body_block %}
  <style>
  .container {
@@ -14,5 +17,6 @@
    }
  </style>
  <h1>this is second page</h1>
+
 
  {% endblock %}

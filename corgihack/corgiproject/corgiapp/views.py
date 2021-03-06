@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -14,6 +15,7 @@ def secondpage(request):
     return redirect("https://pupcare.discussion.community/")
     # return render(request, 'corgiapp/secondpage.html')
 
+@login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
@@ -61,6 +63,7 @@ def user_login(request):
     else:
         return render(request, 'corgiapp/login.html', {})
 
+@login_required
 def portal(request):
 
     username = request.POST.get('username')
