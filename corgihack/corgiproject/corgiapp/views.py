@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from corgiapp.forms import UserForm, UserProfileInfoForm
+from corgiapp.forms import UserForm, UserProfileInfoForm, HealthForm
 
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
@@ -72,5 +72,24 @@ def portal(request):
     profile_pictures = request.POST.get('profile_pictures')
     return render(request, 'corgiapp/portal.html', {'username': username,'profile_pictures': profile_pictures, 'dog_breed': dog_breed})
 
+
 def check(request):
-    return(render(request, 'corgiapp/check.html'))
+    if request.method == "POST":
+        health_form = HealthForm(data=request.POST)
+        if health_form.is_valid():
+            health = health_form.save()
+            health.save()
+
+        else:
+            print('error')
+            return HttpResponse("Form is not Valid")
+    else:
+        health_form = HealthForm()
+        status = True
+    return render(request, 'corgiapp/check.html', {'health_form': health_form})
+
+def result(request):
+    symptom1 = request.POST.get('symptom1')
+    symptom2 = request.POST.get('symptom2')
+    symptom3 = request.POST.get('symptom3')
+    return render(request, 'corgiapp/result.html', {'symptom1': symptom1, 'symptom2': symptom2, 'symptom3': symptom3})

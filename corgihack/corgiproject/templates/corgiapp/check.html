@@ -23,6 +23,7 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
+   h1 {text-align:center}
   #sb {
     background-color: #4CAF50;
     color: white;
@@ -66,7 +67,14 @@
     }
   }
   </style>
+<h1>this is check</h1>
 
+  <h3>Fill out the form:</h3>
+  <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ health_form.as_p}}
+    <input id="sb" type="submit" name="" value="Submit">
 
-  <h1>Welcome to The Check In</h1>
+  </form>
+  <h5>Once Done With this Form, <a href="{% url 'result' %}">Click Here</a></h5>
   {% endblock %}

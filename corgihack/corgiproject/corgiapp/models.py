@@ -14,3 +14,8 @@ class UserProfileInfo(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class HealthInfo(models.Model):
+    symptom1 = models.CharField(max_length=50, blank=True)
+    symptom2 = models.CharField(max_length=50, blank=True)
+    symptom3 = models.CharField(max_length=50, blank=True)

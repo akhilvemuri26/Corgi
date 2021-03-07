@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 {% extends 'corgiapp/base.html' %}
 {% block title %}
-    Registration
+    Symptom Result
 {% endblock %}
-{% load static %}
 
 {% block body_block %}
 <style>
@@ -16,6 +16,8 @@
     border: 1px solid #f2f2f2;
   }
 body {font-family: Arial, Helvetica, sans-serif;}
+ h1 {text-align:center}
+p {text-align:center}
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
@@ -67,22 +69,14 @@ span.pword {
   }
 }
 </style>
-<div class="col-12 box">
-<div class="jumbotron">
-  {% if registered %}
-    <h1>Thank You For Registering For Pup Care.</h1>
-    <p>Click On Our Logo To return to the Home Page or Login to access all of our features</p>
-  {% else %}
-    <img src="https://i.imgur.com/gP44b9H.png" alt="Image Not Found" class="center">
-    <h3>Fill out the form:</h3>
-    <form  method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ user_form.as_p}}
-      {{ profile_form.as_p }}
-      <input id="sb" type="submit" name="" value="Register">
 
-    </form>
-  {% endif %}
-  </div>
-  </div>
+<h1>This is Your Result:</h1>
+<h1>Based On The Symptoms of:</h1>
+  <h1><i>Lethargy, Coughing, Weight Loss</i></h1>
+<h1>Your Dog may have the following disease/infection <strong>Heartworm</strong></h1>
+<p>Use the search engine below if you want to learn more about your disease</p>
+
+<div class="gcse-search"></div>
+
+
 {% endblock %}
