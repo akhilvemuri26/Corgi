@@ -71,3 +71,6 @@ def portal(request):
     dog_breed = request.POST.get('dog_breed')
     profile_pictures = request.POST.get('profile_pictures')
     return render(request, 'corgiapp/portal.html', {'username': username,'profile_pictures': profile_pictures, 'dog_breed': dog_breed})
+
+def check(request):
+    return(render(request, 'corgiapp/check.html'))
